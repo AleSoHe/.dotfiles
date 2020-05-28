@@ -45,7 +45,10 @@ bindsym Mod1+x exec --no-startup-id light -A 5
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator 
+bindsym $mod+Return exec st 
+
+# start a browser
+bindsym $mod+b exec brave
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -152,6 +155,12 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
+
+bindsym $mod+Shift+Y resize shrink width 5 px or 1 ppt
+bindsym $mod+Shift+U resize grow height 5 px or 1 ppt
+bindsym $mod+Shift+I resize shrink height 5 px or 1 ppt
+bindsym $mod+Shift+O resize grow width 5 px or 1 ppt
+
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -185,7 +194,7 @@ bar {
 }
 
 # Gaps
-gaps inner 5
+gaps inner 10
 gaps outer 5
 
 # Picom for transparent terminals
