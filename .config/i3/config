@@ -198,6 +198,6 @@ gaps inner 10
 gaps outer 5
 
 # Picom for transparent terminals
-exec --no-startup-id ~/bin/HDMI
+#exec --no-startup-id ~/bin/HDMI
 exec --no-startup-id ~/.utils/wallpaper
 exec --no-startup-id picom -b
