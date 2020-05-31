@@ -116,10 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Add git branch if its present to PS1, show system info
-source ~/.utils/fancy_prompt.sh
-neofetch
-
 # Custom aliases
 alias z=zathura
 alias lstex="ls *.tex"
@@ -131,3 +127,6 @@ export PATH=$PATH:~/bin:~/bin/statusbar
 export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
+# Add git branch if its present to PS1, show system info
+source fancy_prompt.sh
+neofetch
