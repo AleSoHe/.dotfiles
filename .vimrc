@@ -68,6 +68,7 @@ set encoding=utf-8
 " though there are ftplugin files for each type
 
 " Treat tikz equal as tex
+let g:tex_flavor = 'latex'
 au BufNewFile,BufRead *.tikz set filetype=tex
 
 " Disable wraping

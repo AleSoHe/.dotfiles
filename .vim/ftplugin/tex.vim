@@ -1,5 +1,3 @@
-set filetype=tex
-
 colorscheme torte
 set bg=dark
 
@@ -15,6 +13,6 @@ set tw=80
 if strftime("%H") < 18
     colorscheme github
 else
-    colorscheme torte
+    colorscheme gruvbox
 endif
 
