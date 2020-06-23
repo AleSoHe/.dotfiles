@@ -29,6 +29,10 @@ call plug#begin('~/.vim/plugged')
     "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
+" Git (fugitive) bindings
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+
 " Mappings for plugins features
 map <F2> :NERDTreeToggle<CR>
 
