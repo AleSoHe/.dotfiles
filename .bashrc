@@ -121,6 +121,9 @@ alias z=zathura
 alias lstex="ls *.tex"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 
+# Go to working directory
+[ -f ~/.wdir ] && cd $(cat ~/.wdir) #export PWD=$(cat ~/.wdir)
+
 # Path
 export PATH=$PATH:$HOME/bin:$HOME/bin/statusbar
 # CUDA
@@ -129,4 +132,5 @@ export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRAR
 
 # Add git branch if its present to PS1, show system info
 source fancy_prompt.sh
+beep terminal &
 #neofetch

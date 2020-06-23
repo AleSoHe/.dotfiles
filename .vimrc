@@ -1,3 +1,10 @@
+"        _                    
+" __   _(_)_ __ ___  _ __ ___ 
+" \ \ / / | '_ ` _ \| '__/ __|
+"  \ V /| | | | | | | | | (__ 
+"   \_/ |_|_| |_| |_|_|  \___|
+" ------------ Alejandro Solís
+                            
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
@@ -8,14 +15,22 @@ if has("syntax")
   syntax on
 endif
 
-" Uncomment the following to have Vim jump to the last position when reopening a 
-" file
-"au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
 filetype plugin on
 filetype plugin indent on
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+    Plug 'morhetz/gruvbox'
+    Plug 'preservim/NERDTree'
+    Plug 'vim-airline/vim-airline'
+    Plug 'tpope/vim-fugitive'
+    "Plug 'LaTeX-Box-Team/LaTeX-Box'
+call plug#end()
+
+" Mappings for plugins features
+map <F2> :NERDTreeToggle<CR>
 
 " Useful options 
 set ignorecase
@@ -42,15 +57,11 @@ set autoindent
 set number
 set relativenumber
 
-" Uncomment if visual movement is needed, instead of line movement
-"noremap k gk
-"noremap j gj
-
 " Default colorscheme
 set background=dark
 colorscheme gruvbox
 set t_Co=256
-highlight ColorColumn ctermbg=gray
+"highlight ColorColumn ctermbg=gray
 
 " Default column to show when exceeding 80 characters
 set colorcolumn=81
@@ -62,7 +73,18 @@ au BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! 
 imap jj <ESC>
 imap kk <ESC>
 
+" For easy vim-windows navigation
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Disable wraping
+set nowrap
+
+" Encoding
 set encoding=utf-8
+set fileencoding=utf-8
 
 " FILETYPE SPECIFIC 
 " though there are ftplugin files for each type
@@ -71,5 +93,3 @@ set encoding=utf-8
 let g:tex_flavor = 'latex'
 au BufNewFile,BufRead *.tikz set filetype=tex
 
-" Disable wraping
-set nowrap

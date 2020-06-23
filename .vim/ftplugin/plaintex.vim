@@ -13,7 +13,7 @@ set tw=80
 
 "Colorscheme depends on time
 if strftime("%H") < 18
-    colorscheme github
+    colorscheme gruvbox
 else
     colorscheme torte
 endif
