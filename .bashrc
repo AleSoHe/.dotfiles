@@ -1,6 +1,10 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+#  _               _              
+# | |__   __ _ ___| |__  _ __ ___ 
+# | '_ \ / _` / __| '_ \| '__/ __|
+# | |_) | (_| \__ \ | | | | | (__ 
+# |_.__/ \__,_|___/_| |_|_|  \___|
+#
+# Alejandro Solís 
 
 # If not running interactively, don't do anything
 case $- in
@@ -121,16 +125,21 @@ alias z=zathura
 alias lstex="ls *.tex"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 
-# Go to working directory
+# Go to working directory instead of $HOME
 [ -f ~/.wdir ] && cd $(cat ~/.wdir) #export PWD=$(cat ~/.wdir)
 
 # Path
 export PATH=$PATH:$HOME/bin:$HOME/bin/statusbar
 # CUDA
-export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 # Add git branch if its present to PS1, show system info
 source fancy_prompt.sh
-beep terminal &
-#neofetch
+
+# For del key using st terminal
+tput smkx
+
+# vi-mode
+set -o vi
+
