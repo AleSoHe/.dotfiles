@@ -1,6 +1,4 @@
-# ~/.bash_profile
-# Only for ginger, as 7600 has it's bash_profile
-[ $HOSTNAME != "ginger" ] && exit 0
+# ~/.profile
 
 export EDITOR="vim"
 export BROWSER="brave-browser"
