@@ -26,12 +26,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/NERDTree'
     Plug 'vim-airline/vim-airline'
     Plug 'tpope/vim-fugitive'
+    Plug 'Yggdroot/indentLine'
     "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
 " Git (fugitive) bindings
 nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
+
+" IndentLine
+let g:indentLine_char = '▏'
 
 " Mappings for plugins features
 map <F2> :NERDTreeToggle<CR>

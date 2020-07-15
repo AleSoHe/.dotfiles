@@ -140,6 +140,3 @@ source fancy_prompt.sh
 # For del key using st terminal
 tput smkx
 
-# vi-mode
-set -o vi
-
