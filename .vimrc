@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'tpope/vim-fugitive'
     Plug 'Yggdroot/indentLine'
+    Plug 'matze/vim-meson'
     "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
@@ -35,6 +36,8 @@ nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 
 " IndentLine
+"set conceallevel=1
+"let g:indentLine_conceallevel=1
 let g:indentLine_char = '▏'
 
 " Mappings for plugins features
@@ -56,8 +59,8 @@ endif
 
 " GENERAL configs
 " Tab options: tab=4spaces
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 
