@@ -20,6 +20,9 @@ endif
 filetype plugin on
 filetype plugin indent on
 
+" Leader key
+let mapleader=" "
+
 " Plugins
 call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
@@ -31,17 +34,18 @@ call plug#begin('~/.vim/plugged')
     "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
-" Git (fugitive) bindings
-nnoremap <space>ga :Git add %:p<CR><CR>
-nnoremap <space>gs :Gstatus<CR>
-
 " IndentLine
-"set conceallevel=1
-"let g:indentLine_conceallevel=1
 let g:indentLine_char = '▏'
 
+" -----------------------------
 " Mappings for plugins features
+" -----------------------------
+" - NERDTree
 map <F2> :NERDTreeToggle<CR>
+" - fugitive
+map <leader>gh :diffget //3<CR>
+map <leader>gu :diffget //2<CR>
+map <leader>gs :G<CR>
 
 " Useful options 
 set ignorecase
@@ -102,5 +106,6 @@ set fileencoding=utf-8
 
 " Treat tikz equal as tex
 let g:tex_flavor = 'latex'
+let g:tex_conceal = ""
 au BufNewFile,BufRead *.tikz set filetype=tex
 
