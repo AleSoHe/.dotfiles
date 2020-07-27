@@ -9,6 +9,8 @@ export COMPOSITOR="compton"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/bin/statusbar
 
+[ -d $HOME/.local/bin/ ] && export PATH=$PATH:$HOME/.local/bin
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 $COMPOSITOR -b
