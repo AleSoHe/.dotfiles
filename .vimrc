@@ -20,6 +20,9 @@ endif
 filetype plugin on
 filetype plugin indent on
 
+" Leader key
+let mapleader=" "
+
 " Plugins
 call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
@@ -27,6 +30,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'tpope/vim-fugitive'
     Plug 'Yggdroot/indentLine'
+    Plug 'endel/vim-github-colorscheme'
     "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
@@ -35,10 +39,17 @@ nnoremap <space>ga :Git add %:p<CR><CR>
 nnoremap <space>gs :Gstatus<CR>
 
 " IndentLine
-let g:indentLine_char = '▏'
+let g:indentLine_char = '|'
 
+" -----------------------------
 " Mappings for plugins features
+" -----------------------------
+" - NERDTree
 map <F2> :NERDTreeToggle<CR>
+" - fugitive
+map <leader>gh :diffget //3<CR>
+map <leader>gu :diffget //2<CR>
+map <leader>gs :G<CR>
 
 " Useful options 
 set ignorecase
@@ -56,8 +67,8 @@ endif
 
 " GENERAL configs
 " Tab options: tab=4spaces
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 
@@ -99,5 +110,6 @@ set fileencoding=utf-8
 
 " Treat tikz equal as tex
 let g:tex_flavor = 'latex'
+let g:tex_conceal = ""
 au BufNewFile,BufRead *.tikz set filetype=tex
 
