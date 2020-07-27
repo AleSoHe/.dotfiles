@@ -14,3 +14,5 @@ export PATH=$PATH:$HOME/bin/statusbar
 $COMPOSITOR -b
 $HOME/bin/wallpaper
 dwmblocks &
+
+export _JAVA_AWT_WM_NONREPARENTING=1
