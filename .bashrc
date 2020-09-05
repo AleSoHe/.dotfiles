@@ -126,13 +126,13 @@ alias lstex="ls *.tex"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 
 # Go to working directory instead of $HOME
-[ -f ~/.wdir ] && cd $(cat ~/.wdir) #export PWD=$(cat ~/.wdir)
+#[ -f ~/.wdir ] && cd $(cat ~/.wdir) #export PWD=$(cat ~/.wdir)
 
 # Path
-export PATH=$PATH:$HOME/bin:$HOME/bin/statusbar
+export PATH=$PATH:$HOME/bin:$HOME/bin/statusbar:$HOME/.local/bin
 # CUDA
-export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 # Add git branch if its present to PS1, show system info
 source fancy_prompt.sh

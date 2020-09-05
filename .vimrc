@@ -104,6 +104,9 @@ set fileencoding=utf-8
 " FILETYPE SPECIFIC 
 " though there are ftplugin files for each type
 
+" If .bb: load ftplugin/bb.vim
+autocmd BufNewFile,BufRead *.bb set ft=bb
+
 " Treat tikz equal as tex
 let g:tex_flavor = 'latex'
 let g:tex_conceal = ""
