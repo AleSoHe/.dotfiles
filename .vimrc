@@ -31,6 +31,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'Yggdroot/indentLine'
     Plug 'matze/vim-meson'
+    Plug 'junegunn/goyo.vim'
+    Plug 'ajh17/VimCompletesMe'
     "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
