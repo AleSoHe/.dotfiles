@@ -1,0 +1,7 @@
+[alias]
+  tree = log --graph --decorate --pretty=oneline --abbrev-commit
+[user]
+	email = alejandro.solis@ridgerun.com
+	name = AleSoHe
+[color]
+	ui = auto
