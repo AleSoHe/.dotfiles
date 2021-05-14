@@ -122,22 +122,37 @@ fi
 
 # Custom aliases
 alias z=zathura
+alias feh="feh --keep-zoom-vp"
 alias lstex="ls *.tex"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
-alias vim="nvim"
+alias vimo="vim -O"
+#alias vim="nvim"
 
 # Go to working directory instead of $HOME
 #[ -f ~/.wdir ] && cd $(cat ~/.wdir) #export PWD=$(cat ~/.wdir)
 
 # Path
-export PATH=$PATH:$HOME/bin:$HOME/bin/statusbar:$HOME/.local/bin
+export PATH=$PATH:$HOME/bin:$HOME/bin/statusbar:$HOME/.local/bin:/opt/android-studio/bin/
 # CUDA
 export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+export ANDROID_NDK_HOME=~/work/devdirs/persistent-systems-android-imx6/cerbero/out/build/android-ndk-r9d/
 
 # Add git branch if its present to PS1, show system info
 source fancy_prompt.sh
 
 # For del key using st terminal
 tput smkx
+
+# DISPTEC python path
+export PYTHONPATH=/home/asolis/work/devdirs/disptec/disptec-2020/pose-from-rgb/:$PYTHONPATH
+export PYTHONPATH=/home/asolis/work/devdirs/disptec/disptec-2020/pose-from-rgb/models/:$PYTHONPATH
+export PYTHONPATH=/home/asolis/work/devdirs/disptec/disptec-2020/pose-from-rgb/build/:$PYTHONPATH
+
+# To stop asking for the passphrase
+#eval `ssh-agent -s`
+#ssh-add ~/.ssh/*_rsa
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

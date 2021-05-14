@@ -25,16 +25,32 @@ let mapleader=" "
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-    Plug 'morhetz/gruvbox'
-    Plug 'preservim/NERDTree'
-    Plug 'vim-airline/vim-airline'
-    Plug 'tpope/vim-fugitive'
-    Plug 'Yggdroot/indentLine'
-    Plug 'matze/vim-meson'
-    Plug 'junegunn/goyo.vim'
-    Plug 'ajh17/VimCompletesMe'
-    "Plug 'LaTeX-Box-Team/LaTeX-Box'
+  Plug 'neoclide/coc.nvim'
+  Plug 'morhetz/gruvbox'
+  Plug 'preservim/NERDTree'
+  Plug 'vim-airline/vim-airline'
+  Plug 'tpope/vim-fugitive'
+  Plug 'Yggdroot/indentLine'
+  Plug 'matze/vim-meson'
+  Plug 'junegunn/goyo.vim'
+  Plug 'ajh17/VimCompletesMe'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'gburca/vim-logcat'
+  Plug 'andreshazard/vim-logreview'
+  Plug 'evansalter/vim-checklist'
+  "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
+
+" Clipboard
+vnoremap <leader>y "+y
+
+" Checkbox
+nnoremap <leader>c :ChecklistToggleCheckbox<cr>
+vnoremap <leader>c :ChecklistToggleCheckbox<cr>
+
+" CoC
+let g:coc_disable_startup_warning = 1
 
 " IndentLine
 let g:indentLine_char = '▏'
@@ -90,11 +106,17 @@ au BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! 
 imap jj <ESC>
 imap kk <ESC>
 
+" To hide or show numbers
+noremap <c-n> :set invnumber invrelativenumber <CR>
+
 " For easy vim-windows navigation
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" FZF
+nnoremap <c-f> :Files<CR>
 
 " Disable wraping
 set nowrap
@@ -108,6 +130,8 @@ set fileencoding=utf-8
 
 " If .bb: load ftplugin/bb.vim
 autocmd BufNewFile,BufRead *.bb set ft=bb
+autocmd BufNewFile,BufRead *.cbc set ft=cbc
+autocmd BufNewFile,BufRead *.bp set ft=bp
 
 " Treat tikz equal as tex
 let g:tex_flavor = 'latex'
