@@ -35,6 +35,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/seoul256.vim'
+    "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf', { 'dir': '/usr/local/src/fzf/' }
     Plug 'junegunn/fzf.vim'
     Plug 'ajh17/VimCompletesMe'
@@ -46,6 +47,12 @@ call plug#begin('~/.vim/plugged')
     "Plug 'wfxr/minimap.vim'
     "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
+"
+" Clipboard
+"vnoremap <leader>y "+y
+
+" CoC
+let g:coc_disable_startup_warning = 1
 
 let g:coc_disable_startup_warning = 1
 let g:goyo_linenr = 1
@@ -112,11 +119,17 @@ au BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! 
 imap jj <ESC>
 imap kk <ESC>
 
+" To hide or show numbers
+noremap <c-n> :set invnumber invrelativenumber <CR>
+
 " For easy vim-windows navigation
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" FZF
+nnoremap <c-f> :Files<CR>
 
 " Disable wraping
 set nowrap
@@ -130,6 +143,8 @@ set fileencoding=utf-8
 
 " If .bb: load ftplugin/bb.vim
 autocmd BufNewFile,BufRead *.bb set ft=bb
+autocmd BufNewFile,BufRead *.cbc set ft=cbc
+autocmd BufNewFile,BufRead *.bp set ft=bp
 
 " Treat tikz equal as tex
 let g:tex_flavor = 'latex'

@@ -17,4 +17,7 @@ $COMPOSITOR -b
 $HOME/bin/wallpaper
 dwmblocks &
 
+# SWAP
+
+
 export _JAVA_AWT_WM_NONREPARENTING=1
