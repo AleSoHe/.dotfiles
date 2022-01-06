@@ -1,6 +1,6 @@
 [global_config]
   handle_size = 0
-  inactive_color_offset = 0.653846153846
+  inactive_color_offset = 1.0
   suppress_multiple_term_dialog = True
 [keybindings]
   go_down = <Primary>j
@@ -23,7 +23,11 @@
 [profiles]
   [[default]]
     background_color = "#282828"
-    background_darkness = 0.86
+    background_darkness = 0.96
     background_type = transparent
     cursor_color = "#aaaaaa"
     foreground_color = "#ebdbb2"
+    scroll_on_keystroke = False
+    scrollback_infinite = True
+  [[New Profile]]
+    cursor_color = "#aaaaaa"

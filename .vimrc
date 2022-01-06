@@ -25,6 +25,7 @@ let mapleader=" "
 
 " Plugins
 call plug#begin('~/.vim/plugged')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'morhetz/gruvbox'
     Plug 'preservim/NERDTree'
     Plug 'vim-airline/vim-airline'
@@ -32,12 +33,28 @@ call plug#begin('~/.vim/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'matze/vim-meson'
     Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/seoul256.vim'
+    Plug 'junegunn/fzf', { 'dir': '/usr/local/src/fzf/' }
+    Plug 'junegunn/fzf.vim'
     Plug 'ajh17/VimCompletesMe'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'mileszs/ack.vim'
+    Plug 'brooth/far.vim'
+    Plug 'gburca/vim-logcat'
+    "Plug 'ycm-core/YouCompleteMe'
+    "Plug 'wfxr/minimap.vim'
     "Plug 'LaTeX-Box-Team/LaTeX-Box'
 call plug#end()
 
+let g:coc_disable_startup_warning = 1
+let g:goyo_linenr = 1
+
 " IndentLine
 let g:indentLine_char = '▏'
+
+let NERDTreeMapOpenInTab='<ENTER>'
+
 
 " -----------------------------
 " Mappings for plugins features
@@ -48,6 +65,11 @@ map <F2> :NERDTreeToggle<CR>
 map <leader>gh :diffget //3<CR>
 map <leader>gu :diffget //2<CR>
 map <leader>gs :G<CR>
+
+map <C-p> :Files<CR>
+
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 
 " Useful options 
 set ignorecase
@@ -72,7 +94,7 @@ set autoindent
 
 " Show line number and relative numbers from the actual position
 set number
-set relativenumber
+"set relativenumber
 
 " Default colorscheme
 set background=dark
@@ -113,4 +135,17 @@ autocmd BufNewFile,BufRead *.bb set ft=bb
 let g:tex_flavor = 'latex'
 let g:tex_conceal = ""
 au BufNewFile,BufRead *.tikz set filetype=tex
+
+" ctags (checks if there's a tags file, and refreshes it in this case)
+au BufWritePost *.py,*.c,*.cpp,*.h,*.cu silent! !eval '[ -f tags ] && ctags -R -o newtags && mv newtags tags' &
+
+" Clipboard yank
+set clipboard=unnamedplus
+nnoremap y "+y
+vnoremap y "+y
+
+" For ctags
+"nnoremap <C-]> :tabnew %<CR>g<C-]>
+"nnoremap <C-]> :tabnew %g<CR>g<C-]>
+vnoremap <C-]> <Esc>:tabnew %<CR>gvg<C-]>
 

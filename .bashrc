@@ -61,7 +61,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$'
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -130,7 +130,6 @@ alias vim="nvim"
 #[ -f ~/.wdir ] && cd $(cat ~/.wdir) #export PWD=$(cat ~/.wdir)
 
 # Path
-export PATH=$PATH:$HOME/bin:$HOME/bin/statusbar:$HOME/.local/bin
 # CUDA
 export PATH=/usr/local/cuda-10.2/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
@@ -141,3 +140,7 @@ source fancy_prompt.sh
 # For del key using st terminal
 tput smkx
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Alias to copy something from stdout to the clipboard
+alias getclip="xclip -sel c"
