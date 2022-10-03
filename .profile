@@ -1,7 +1,7 @@
 # ~/.profile
 
 export EDITOR="vim"
-export BROWSER="brave-browser"
+export BROWSER="google-chrome"
 export COMPOSITOR="compton"
 
 # This line is added as, for some reason, dwm executes without bin in the PATH, 
@@ -17,7 +17,7 @@ $COMPOSITOR -b
 $HOME/bin/wallpaper
 dwmblocks &
 
-# SWAP
-
-
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# SWAP
+exec dwm

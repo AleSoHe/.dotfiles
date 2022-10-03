@@ -25,7 +25,7 @@ let mapleader=" "
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'morhetz/gruvbox'
     Plug 'preservim/NERDTree'
     Plug 'vim-airline/vim-airline'
@@ -164,3 +164,6 @@ vnoremap y "+y
 "nnoremap <C-]> :tabnew %g<CR>g<C-]>
 vnoremap <C-]> <Esc>:tabnew %<CR>gvg<C-]>
 
+" Avoid clearing the clipboard when closing the editor
+autocmd VimLeave * call system('echo ' . shellescape(getreg('+')) .
+            \ ' | xclip -selection clipboard')
