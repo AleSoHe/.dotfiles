@@ -5,3 +5,5 @@
 	name = AleSoHe
 [color]
 	ui = auto
+[safe]
+	directory = /home/asolis/work/nvidia/nvidia_sdk/Symbotic_JetPack_4.6_Linux_JETSON_XAVIER_NX_TARGETS/Linux_for_Tegra/sources

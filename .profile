@@ -1,23 +1,27 @@
-# ~/.profile
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
 
-export EDITOR="vim"
-export BROWSER="google-chrome"
-export COMPOSITOR="compton"
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
 
-# This line is added as, for some reason, dwm executes without bin in the PATH, 
-# which is in the .bashrc
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/bin/statusbar
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
 
-[ -d $HOME/.local/bin/ ] && export PATH=$PATH:$HOME/.local/bin
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-
-$COMPOSITOR -b
-$HOME/bin/wallpaper
-dwmblocks &
-
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# SWAP
-exec dwm
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
