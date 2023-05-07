@@ -1,0 +1,13 @@
+#!/bin/bash
+
+shopt -s expand_aliases
+
+cd $HOME
+source .bashrc
+git clone --bare https://www.github.com/AleSoHe/.dotfiles $HOME/.dotfiles.git
+
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+dotfiles checkout -f
+dotfiles config --local status.showUntrackedFiles no
+
+cd -
